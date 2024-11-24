@@ -1,8 +1,9 @@
 <script setup>
 import NoteCard from "@/components/NoteCard.vue";
-import data from "@/assets/data.json";
+import data from "../../public/data.json";
 import {ref} from "vue";
 import {useRoute} from "vue-router";
+
 const search = ref(useRoute().params.cate);
 const notes = ref(data);
 </script>

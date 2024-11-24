@@ -1,6 +1,6 @@
 <script setup>
 import FriendlyLinkCard from "@/components/FriendlyLinkCard.vue";
-import data from "@/../public/friendlyLink.json";
+import data from "../../public/friendlyLink.json";
 </script>
 
 <template>
