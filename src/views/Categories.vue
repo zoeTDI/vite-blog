@@ -1,15 +1,20 @@
 <script setup>
 import NoteList from "@/components/NoteList.vue";
-import data from "../../public/data.json";
+import Banner from "@/components/Banner.vue";
 import {useRoute} from "vue-router";
-
-const notes = data.filter(e => e.category === (useRoute().params.cate === "all" ? e.category : useRoute().params.cate));
-const searchText = useRoute().params.cate;
+import {ref, watch} from "vue";
+const route = useRoute();
+const search = ref(route.params.cate);
+watch(() => route.params.cate, (newCate) => {
+  search.value = newCate;
+})
 </script>
 
 <template>
   <div id="categories">
-    <NoteList :notes="notes" :search="searchText"/>
+    <Banner :title="search === 'all' ? '分类' : search"
+            :sub-title="search === 'all' ? '' : `浏览「${search}」下的所有文章`"/>
+    <NoteList />
   </div>
 </template>
 

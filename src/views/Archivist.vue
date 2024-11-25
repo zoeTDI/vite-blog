@@ -1,14 +1,12 @@
 <script setup>
-import data from "../../public/data.json";
+import Banner from "@/components/Banner.vue";
 import NoteList from "@/components/NoteList.vue";
-const notes = data.sort((a, b) => {
-  return parseInt(b.date, 10) - parseInt(a.date, 10);
-});
 </script>
 
 <template>
   <div id="archivist">
-    <NoteList :noteList="notes" />
+    <Banner />
+    <NoteList />
   </div>
 </template>
 
