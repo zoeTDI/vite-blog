@@ -3,10 +3,10 @@ import logoImage from '@/assets/logo.png'
 const navList = [
   { name: '', path: '/', classList: ['logo'] },
   { name: 'Caldm', path: '/', classList: ['title'] },
-  { name: '主页', path: '/', classList: [] },
-  { name: '归档', path: '/archivist/all', classList: [] },
-  { name: '友链', path: '/friendlyLink', classList: []},
-  { name: '联系我', path: '/connect', classList: [] }
+  { name: '主页', path: '/', classList: ['tab'] },
+  { name: '归档', path: '/archivist/all', classList: ['tab'] },
+  { name: '友链', path: '/friendlyLink', classList: ['tab'] },
+  { name: '联系我', path: '/connect', classList: ['tab'] }
 ];
 const isLogo = 0;
 </script>
@@ -106,5 +106,15 @@ a {
   margin-left: 1em;
   text-align: left;
   font-size: 1.5em;
+}
+.tab {
+  margin: auto 4px;
+  font-weight: bold;
+}
+
+.tab .router-link-active {
+  background-color: white;
+  color: black;
+  border-radius: 4px;
 }
 </style>
