@@ -154,7 +154,7 @@ function copyEmail() {
         </div>
         <div class="card-title">
           <span><router-link
-              :to="{name: 'Categories', params: {cate: 'all'}}">分类</router-link></span>
+              :to="{name: 'Archivist', params: {cate: 'all'}}">分类</router-link></span>
         </div>
       </div>
       <div class="card-content">
@@ -163,7 +163,7 @@ function copyEmail() {
               v-for="(item, index) in categories.filter((value, index, self) => self.indexOf(value) === index)"
               :key="index"
           >
-            <router-link :to="{name: 'Categories', params: {cate: item}}">
+            <router-link :to="{name: 'Archivist', params: {cate: item}}">
               {{ item }}
             </router-link>
           </li>
@@ -186,7 +186,7 @@ function copyEmail() {
         </div>
         <div class="card-title">
           <span><router-link
-              :to="{name: 'Categories', params: {cate: 'all'}}">标签</router-link></span>
+              :to="{name: 'Archivist', params: {cate: 'all'}}">标签</router-link></span>
         </div>
       </div>
       <div class="card-content">
@@ -195,7 +195,7 @@ function copyEmail() {
               v-for="(item, index) in tags"
               :key="index"
           >
-            <router-link :to="{name: 'Categories', params: {cate: item}}">
+            <router-link :to="{name: 'Archivist', params: {cate: item}}">
               {{ item }}
             </router-link>
           </li>

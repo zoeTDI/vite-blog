@@ -4,8 +4,7 @@ const navList = [
   { name: '', path: '/', classList: ['logo'] },
   { name: 'Caldm', path: '/', classList: ['title'] },
   { name: '主页', path: '/', classList: [] },
-  { name: '分类', path: '/Categories/all', classList: [] },
-  { name: '归档', path: '/archivist', classList: [] },
+  { name: '归档', path: '/archivist/all', classList: [] },
   { name: '友链', path: '/friendlyLink', classList: []},
   { name: '联系我', path: '/connect', classList: [] }
 ];
