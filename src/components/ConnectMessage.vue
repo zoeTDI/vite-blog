@@ -6,8 +6,10 @@ import {onMounted, ref} from "vue";
 const content = ref('');
 async function fetchContent() {
   try {
-    const resp = await axios.get("http://localhost:8080/api/connect/getContent");
-    content.value = resp.data;
+    await axios.get("http://localhost:8080/api/connect/getContent")
+        .then( (resp) => {
+          content.value = resp.data;
+        });
   } catch (error) {
     content.value = "Error fetching content.";
     console.error("Error fetching content:", error);
