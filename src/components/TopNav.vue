@@ -6,7 +6,8 @@ const navList = [
   { name: '主页', path: '/', classList: ['tab'] },
   { name: '归档', path: '/archivist/all', classList: ['tab'] },
   { name: '友链', path: '/friendlyLink', classList: ['tab'] },
-  { name: '联系我', path: '/connect', classList: ['tab'] }
+  { name: '联系我', path: '/connect', classList: ['tab'] },
+  { name: '测试', path: '/test', classList: ['tab'] }
 ];
 const isLogo = 0;
 </script>
