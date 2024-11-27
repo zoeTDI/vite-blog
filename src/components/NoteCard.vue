@@ -27,7 +27,7 @@ const rs = md.render(props.summary);
     <div class="content">
       <div class="image-container">
         <img
-            :src="'./' + pic"
+            :src="pic"
             alt="cover"
         >
       </div>

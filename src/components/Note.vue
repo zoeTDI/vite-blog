@@ -18,7 +18,7 @@ defineProps({
   <div class="note">
     <img
         class="banner"
-        :src="'./' + pic"
+        :src="pic"
         alt="banner"
     >
     <div class="header">
