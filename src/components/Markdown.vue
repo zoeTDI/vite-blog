@@ -1,7 +1,7 @@
 <script setup>
 import MarkdownIt from "markdown-it";
 import "prismjs/themes/prism-tomorrow.css";
-
+import {ref, watch} from "vue";
 const props = defineProps({
   content: {
     type: String,
@@ -14,7 +14,16 @@ const md = new MarkdownIt({
   linkify: true,
   typographer: true
 });
-const rs = md.render(props.content);
+const rs = ref('');
+rs.value = md.render(props.content);
+
+/**
+ * 监听props.content的变化，当发生变化时，更新rs的值
+ * immediate: true 在 watch 创建时立即执行一次回调函数。
+ */
+watch( () => props.content, (newContent) => {
+  rs.value = md.render(newContent);
+}, {immediate: true})
 
 </script>
 
@@ -30,16 +39,14 @@ const rs = md.render(props.content);
   font-family: "LXGWWenKaiScreenR";
   src: url("@/assets/fonts/LXGWWenKaiScreenR.ttf") format("truetype");
 }
-
 /**
  * 自定义markdown内容的字体样式
  * 该样式使用了深度选择器>>>以穿透Vue组件的样式隔离
  * 设置了特定的字体系列以保证文本的视觉一致性
  */
 :deep(*) {
-  font-family: "LXGWWenKaiScreenR", "宋体", "Avenir", Helvetica, Arial, sans-serif;
+  font-family: "LXGWWenKaiScreenR", "宋体";
 }
-
 /**
  * 自定义markdown中h1标签的样式
  *
@@ -71,7 +78,6 @@ const rs = md.render(props.content);
   /* 给鼠标悬浮时显示的前缀编号提供定位元素 */
   position: relative;
 }
-
 /**
  * 设置markdown中h1至h6标题的字体大小
  * 每个级别的标题比上一级别缩小10%
@@ -127,28 +133,22 @@ const rs = md.render(props.content);
   position: absolute;
   left: -32px;
 }
-
 /* 为不同级别的标题元素设置不同的content值 */
 :deep(h1:hover:before) {
   content: "#1";
 }
-
 :deep(h2:hover:before) {
   content: "#2";
 }
-
 :deep(h3:hover:before) {
   content: "#3";
 }
-
 :deep(h4:hover:before) {
   content: "#4";
 }
-
 :deep(h5:hover:before) {
   content: "#5";
 }
-
 :deep(h6:hover:before) {
   content: "#6";
 }
@@ -164,12 +164,10 @@ const rs = md.render(props.content);
   color: orangered;
   font-weight: normal;
 }
-
 :deep(em) {
   /* 设置markdown中em元素的颜色为深灰色 */
   color: #666;
 }
-
 :deep(em strong) {
   /* 对于markdown中同时包含em和strong的元素，应用特殊效果 */
   -webkit-background-clip: text;
@@ -178,32 +176,26 @@ const rs = md.render(props.content);
   /* 使用线性渐变背景，从深蓝色到浅蓝色，增强视觉效果 */
   background-image: linear-gradient(120deg, #1048ff 0%, #14c8ff 80%);
 }
-
 :deep(a) {
   /* 设置markdown中a元素的颜色为蓝色，并添加下划线 */
   color: hsl(207, 77%, 54%);
 }
-
 :deep(p) {
   line-height: 1.8em;
   margin: 1em 0;
 }
-
 :deep(p code) {
   background-color: #cccccc62;
   border-radius: 4px;
   padding: 2px 4px;
   color: #54729f;
 }
-
 :deep(img) {
-  width: 80%;
-  margin: 1em 10%;
-  border: 1px solid #eceef0;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.08);
+  /* 图片居中对齐 */
+  display: block;
+  width: 100%;
+  padding: 1em 10%;
 }
-
 :deep(blockquote) {
   border-left: 4px solid #ccc; /* 左边框线 */
   padding: 10px 20px; /* 内边距 */
@@ -212,7 +204,6 @@ const rs = md.render(props.content);
   font-style: italic; /* 斜体文字 */
   color: #666; /* 文字颜色 */
 }
-
 :deep(ul) {
   /* 列表项标记样式 */
   list-style-type: disc;

@@ -1,21 +1,21 @@
 <script setup>
 import Markdown from "@/components/Markdown.vue";
-const content = "大家好，我是 Caldm，一名计算机信息系的大学生。我热爱技术，也热爱文学。在数字与文字的世界里，我寻找着平衡与和谐。我的性格比较安静，喜欢安静的环境，这让我能够更专注于编程和写作。\n\n" +
-    "**座右铭**：“路虽远，行则将至；事虽难，做则可成。”\n\n" +
-    "### 爱好/兴趣\n\n" +
-    "- **阅读**：无论是网络文学还是传统文学作品，我都能沉浸其中，享受阅读的乐趣。\n" +
-    "- **写作**： 我喜欢用文字记录生活，表达思想，写作是我与世界沟通的方式之一。\n" +
-    "- **编程**： 我对编程充满热情，掌握 C/C++, Python, Java, HTML, CSS, JS 等多种编程语言。\n" +
-    "- **写日记**： 写日记是我记录日常和自我反思的习惯。\n" +
-    "### 经历\n\n" +
-    "- **游戏玩家**： 我是《原神》的开服玩家，也是《明日方舟》的老玩家，虽然自称“咸鱼刀客塔”，但我依然享受游戏带来的乐趣。\n" +
-    "- **工程师**： 在《异星工厂》中，我拥有2000+小时的生产线工程师经验。\n" +
-    "- **技能大赛**： 我曾参加全省技能大赛，赛项为网站技术，这是对我的技术能力的一次重要检验。\n" +
-    "### 建立网站的目的\n\n" +
-    "我建立这个网站的初衷是希望通过它输出我所学的知识，帮助那些需要的人。我相信分享知识是一种力量，能够让我们共同进步。\n\n" +
-    "### 个人愿景 / 目标\n\n" +
-    "我的目标是毕业后成为一名前端程序员，或者成为一名网文作者。我相信通过不懈的努力和持续的学习，我能够实现我的梦想。\n\n" +
-    "联系方式见 [隐私政策](https://caldm.cn/index.php/privacy-policy/)\n\n";
+import axios from "axios";
+import {onMounted, ref} from "vue";
+// "http://localhost:8080/api/connect/getContent"
+const content = ref('');
+async function fetchContent() {
+  try {
+    const resp = await axios.get("http://localhost:8080/api/connect/getContent");
+    content.value = resp.data;
+  } catch (error) {
+    content.value = "Error fetching content.";
+    console.error("Error fetching content:", error);
+  }
+}
+onMounted( () => {
+  fetchContent();
+})
 </script>
 
 <template>
