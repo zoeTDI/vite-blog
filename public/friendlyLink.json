@@ -1,41 +1,41 @@
 [
 {
-  "icon": "/src/assets/logo.png",
+  "icon": "./friendlyLogo.png",
   "name": "Caldm",
   "url": "https://caldm.cn/",
   "summary": "路虽远，行则将至；事虽难，做则可成。"
 },{
-  "icon": "/src/assets/logo.png",
+  "icon": "./friendlyLogo.png",
   "name": "GitHub",
   "url": "https://github.com/",
   "summary": "Hello World"
 },{
-  "icon": "/src/assets/logo.png",
+  "icon": "./friendlyLogo.png",
   "name": "GitHub",
   "url": "https://github.com/",
   "summary": "Hello World"
 },{
-  "icon": "/src/assets/logo.png",
+  "icon": "./friendlyLogo.png",
   "name": "GitHub",
   "url": "https://github.com/",
   "summary": "Hello WorldHello WorldHello WorldHello WorldHello WorldHello World"
 },{
-  "icon": "/src/assets/logo.png",
+  "icon": "./friendlyLogo.png",
   "name": "GitHub",
   "url": "https://github.com/",
   "summary": "Hello WorldHello WorldHello WorldHello WorldHello WorldHello World"
 },{
-  "icon": "/src/assets/logo.png",
+  "icon": "./friendlyLogo.png",
   "name": "GitHub",
   "url": "https://github.com/",
   "summary": "Hello World"
 },{
-  "icon": "/src/assets/logo.png",
+  "icon": "./friendlyLogo.png",
   "name": "GitHub",
   "url": "https://github.com/",
   "summary": "Hello World"
 },{
-  "icon": "/src/assets/logo.png",
+  "icon": "./friendlyLogo.png",
   "name": "GitHub",
   "url": "https://github.com/",
   "summary": "Hello World"

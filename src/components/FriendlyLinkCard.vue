@@ -22,7 +22,7 @@ defineProps({
 <template>
   <div id="friendly-link-card">
     <div class="card-cover">
-      <a :href= "url" target="_blank"><img :src="`${icon}`" alt="icon"></a>
+      <a :href= "url" target="_blank"><img :src="icon" alt="icon"></a>
     </div>
     <div class="card-content">
       <h1><a :href="url" target="_blank">{{ name }}</a></h1>
