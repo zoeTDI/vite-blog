@@ -34,11 +34,12 @@ import data from "../../public/friendlyLink.json";
 
 .card-list {
   max-width: 80%;
-  margin: auto;
+  margin: 2.5em auto auto;
   padding: 2em 1em;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1.5em;
-  column-gap: 2em;
+  gap: 2em;
+  column-gap: 4em;
 }
+
 </style>

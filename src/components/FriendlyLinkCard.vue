@@ -47,6 +47,9 @@ a {
   flex-wrap: nowrap;
   gap: 8px;
 }
+#friendly-link-card:hover {
+  box-shadow: 0 0 15px #cbcbcb;
+}
 .card-cover {
   margin: 8px 0 8px 8px;
   border: 4px solid #c3c4c6;

@@ -6,7 +6,7 @@ import MusicCard from "@/components/MusicCard.vue";
 
 const userName = "Caldm";
 const summary = "这里是我的个人博客，欢迎来到我的小站，希望你喜欢。";
-const announcement = "欢迎来访 Caldm 的个人博客，博主暂时还没有发布任何公告。";
+const announcement = "欢迎访问我创建的网站：";
 const qqId = "1832400547";
 const email = "1832400547@qq.com";
 const categories = data.map(e => e.category);
@@ -135,7 +135,7 @@ function copyEmail() {
         </div>
       </div>
       <div class="card-content">
-        <p>{{ announcement }}</p>
+        <p>{{ announcement }} <a href="https://www.caldm.cn" target="_blank" style="color: #2f93e4;">Caldm</a></p>
       </div>
     </div>
     <div class="card categories">
