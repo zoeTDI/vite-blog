@@ -74,12 +74,12 @@ function copyEmail() {
                   fill="#272636"
               ></path>
             </svg>
-            <div class="code">
+            <span class="code">
               <img
                   :src="weChatCode"
                   alt="二维码"
               >
-            </div>
+            </span>
           </button>
           <button
               @click="copyQQId"
