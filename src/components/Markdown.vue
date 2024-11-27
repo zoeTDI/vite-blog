@@ -37,7 +37,7 @@ const rs = md.render(props.content);
  * 设置了特定的字体系列以保证文本的视觉一致性
  */
 :deep(*) {
-  font-family: "LXGWWenKaiScreenR", "宋体";
+  font-family: "LXGWWenKaiScreenR", "宋体", "Avenir", Helvetica, Arial, sans-serif;
 }
 
 /**
