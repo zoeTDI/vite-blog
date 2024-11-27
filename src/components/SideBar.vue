@@ -339,7 +339,8 @@ a {
 .connect {
   display: flex;
   flex: 1 1 auto;
-  justify-content: space-around;
+  column-gap: 1em;
+  justify-content: center;
 }
 
 .connect button:hover {

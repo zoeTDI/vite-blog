@@ -87,7 +87,7 @@ a {
   height: 50px;
   margin: 0.4em 0;
   padding: 0;
-  border: 3px solid rgb(0, 118, 16);
+  border: 3px solid rgb(255, 255, 255);
   border-radius: 50%;
   overflow: hidden;
 }
