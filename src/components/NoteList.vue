@@ -25,7 +25,7 @@ watch(() => route.params.cate, (newCate) => {
         :key="index"
         :pic="note.pic"
         :title="note.title"
-        :summary="note.content.split('\n')[0]"
+        :summary="note.content.split('\n\n').slice(0, 1).join('\n\n')"
         :date="note.date"
         :tags="note.tags"
         :link="{ name: 'Note', params: { id: note.id } }"
