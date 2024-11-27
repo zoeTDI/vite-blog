@@ -1,6 +1,7 @@
 <script setup>
 import MarkdownIt from "markdown-it";
 import "prismjs/themes/prism-tomorrow.css";
+import {ref, watch} from "vue";
 const props = defineProps({
   content: {
     type: String,
@@ -13,7 +14,16 @@ const md = new MarkdownIt({
   linkify: true,
   typographer: true
 });
-const rs = md.render(props.content);
+const rs = ref('');
+rs.value = md.render(props.content);
+
+/**
+ * 监听props.content的变化，当发生变化时，更新rs的值
+ * immediate: true 在 watch 创建时立即执行一次回调函数。
+ */
+watch( () => props.content, (newContent) => {
+  rs.value = md.render(newContent);
+}, {immediate: true})
 
 </script>
 
