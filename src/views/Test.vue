@@ -3,17 +3,10 @@ import {onMounted, ref} from "vue";
 import axios from "axios";
 import NoteCard from "@/components/NoteCard.vue";
 
-const note = ref({
-  pic: "",
-  title: "",
-  summary: "",
-  date: "",
-  tags: [],
-  link: {}
-})
+const note = ref({});
 async function fetchNote() {
   try {
-    const res = await axios.get("http://localhost:8080/api/note/getNote");
+    const res = await axios.get("http://localhost:8080/api/note/getNoteCard");
     console.log(res.data);
     note.value = res.data;
   } catch (error) {

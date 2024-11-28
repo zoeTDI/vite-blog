@@ -2,12 +2,30 @@
 import MarkdownIt from "markdown-it";
 
 const props = defineProps({
-  pic: String,
-  title: String,
-  summary: String,
-  date: String,
-  tags: Array,
-  link: Object
+  pic: {
+    type: String,
+    default: ""
+  },
+  title: {
+    type: String,
+    default: ""
+  },
+  summary: {
+    type: String,
+    default: ""
+  },
+  date: {
+    type: String,
+    default: ""
+  },
+  tags: {
+    type: Array,
+    default: () => ([])
+  },
+  link: {
+    type: Object,
+    default: () => ({})
+  }
 })
 const md = new MarkdownIt({
   html: true,
