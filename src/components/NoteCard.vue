@@ -1,5 +1,6 @@
 <script setup>
 import MarkdownIt from "markdown-it";
+import {useAdjustImageSize} from "@/js/useAdjustImageSize.js";
 
 const props = defineProps({
   pic: {
@@ -33,6 +34,7 @@ const md = new MarkdownIt({
   typographer: true
 })
 const rs = md.render(props.summary);
+const {noteImage, adjustImageSize} = useAdjustImageSize();
 </script>
 
 <template>
@@ -45,8 +47,10 @@ const rs = md.render(props.summary);
     <div class="content">
       <div class="image-container">
         <img
+            ref="noteImage"
             :src="pic"
             alt="cover"
+            @load="adjustImageSize"
         >
       </div>
       <div class="text-container">
@@ -81,6 +85,7 @@ const rs = md.render(props.summary);
   margin: 1em 0;
   padding: 1em;
   width: 100%;
+  height: 260px;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
   transition: box-shadow 0.3s;
 }
@@ -102,19 +107,20 @@ const rs = md.render(props.summary);
 }
 
 .content {
+  height: calc(100% - 1em - 25px);
   display: flex;
 }
 
 .image-container {
   flex: 1;
   margin-right: 1em;
+  overflow: hidden;
 }
 
 .image-container img {
-  width: 100%;
-  height: auto;
   border: 1px solid #eceef0;
-  border-radius: 4.5px;
+  border-radius: 5px;
+  object-fit: cover;
 }
 
 .text-container {
