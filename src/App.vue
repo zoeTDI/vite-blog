@@ -34,6 +34,7 @@ body {
 }
 
 #app {
+  min-width: 1080px;
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   color: #2c3e50;
   max-width: 90em;

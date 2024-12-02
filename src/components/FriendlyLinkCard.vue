@@ -37,6 +37,7 @@ a {
   color: black;
 }
 #friendly-link-card {
+  padding: 8px;
   background: rgba(255, 255, 255, 0.94);
   border: 1px solid #eceef0;
   border-radius: 8px;
