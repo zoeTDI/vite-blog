@@ -21,6 +21,7 @@ watch(() => route.params.cate, (newCate) => {
 <template>
   <div id="notes">
     <NoteCard
+        v-side-in
         v-for="(note, index) in noteData"
         :key="index"
         :pic="note.pic"
