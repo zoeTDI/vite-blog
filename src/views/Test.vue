@@ -1,17 +1,28 @@
 <script setup>
+import {onMounted, ref} from "vue";
+import axios from "axios";
+import NoteCard from "@/components/NoteCard.vue";
 
-// 定义背景颜色数组
-const colors = [
-  'rgb(195, 117, 117)',
-  'rgb(155, 195, 117)',
-  'rgb(117, 195, 195)',
-  'rgb(195, 117, 195)',
-  'rgb(195, 195, 117)',
-  'rgb(117, 195, 195)',
-  'rgb(195, 117, 195)',
-  'rgb(117, 195, 195)'
-];
-
+const note = ref({
+  pic: "",
+  title: "",
+  summary: "",
+  date: "",
+  tags: [],
+  link: {}
+})
+async function fetchNote() {
+  try {
+    const res = await axios.get("http://localhost:8080/api/note/getNote");
+    console.log(res.data);
+    note.value = res.data;
+  } catch (error) {
+    console.error("Error fetching note");
+  }
+}
+onMounted(() => {
+  fetchNote();
+})
 </script>
 
 <template>
@@ -22,14 +33,17 @@ const colors = [
           <div class="card">
             <div class="card-body">
               <h2 class="card-title">测试页</h2>
-              <div
-                  v-side-in
-                  class="note"
-                  v-for="(color, i) in colors"
-                  :key="i"
-                  :style="{backgroundColor: color}">
-                <h2>{{ 'Card' + (i + 1) }}</h2>
-              </div>
+              <h3>res.data</h3>
+              <p v-if="!note">loading ...</p>
+              <p v-else>{{note}}</p>
+              <h3>NoteCard</h3>
+              <NoteCard :pic="note.pic"
+                        :title="note.title"
+                        :summary="note.summary"
+                        :date="note.date"
+                        :tags="note.tags"
+                        :link="note.link || {name : 'Home', params: {}}"
+              />
             </div>
           </div>
         </div>
@@ -39,18 +53,5 @@ const colors = [
 </template>
 
 <style scoped>
-.note {
-  display: flex;
-  width: 800px;
-  margin: 20px auto;
-  height: 400px;
-  border-radius: 15px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
 
-.note h2 {
-  margin: auto;
-  font-size: 3em;
-  color: white;
-}
 </style>
